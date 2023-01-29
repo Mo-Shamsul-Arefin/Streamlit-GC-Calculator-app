@@ -3,9 +3,20 @@ from Bio import SeqIO
 from io import StringIO
 import pandas as pd
 import numpy as np
+from PIL import Image
 
-st.set_page_config(page_title="GC Content Calculator", page_icon=":guardsman:", layout="wide")
+img = Image.open('dna.png')
+
+st.set_page_config(page_title="GC Content Calculator", page_icon=img, layout="centered")
 st.title("GC Content Calculator")
+hide_st_style = """
+            <style>
+            #MainMenu {visibility: hidden;}
+            footer {visibility: hidden;}
+            header {visibility: hidden;}
+            </style>
+            """
+st.markdown(hide_st_style, unsafe_allow_html=True)
 
 seq_input = st.radio("Select input method", ("Paste sequences", "Upload file"))
 
